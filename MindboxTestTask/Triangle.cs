@@ -7,6 +7,10 @@
         private double _c;
         public Triangle(double a, double b, double c)
         {
+            if (double.IsNaN(a) || double.IsNaN(b) || double.IsNaN(c) || a <= 0 || b <= 0 || c <= 0)
+            {
+                throw new ArgumentException("Стороны треугольника должны быть положительными числами и не NaN.");
+            }
             if (a + b <= c || a + c <= b || b + c <= a)
                 throw new ArgumentException("Стороны не могут образовать треугольник.");
 
